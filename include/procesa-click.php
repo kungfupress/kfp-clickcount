@@ -1,10 +1,22 @@
 <?php
-defined( 'ABSPATH' ) or die();
+/**
+ * File: procesa-click.php
+ * Añade un action hook para capturar las llamadas ajax que utilicen este hook
+ */
+
+defined('ABSPATH') or die();
 // Para usuarios autenticados
 add_action('wp_ajax_kfp-click-link', 'kfp_clickcount_procesa_click');
 // Para usuarios NO autenticados
 add_action('wp_ajax_nopriv_kfp-click-link', 'kfp_clickcount_procesa_click');
 
+/**
+ * Busca si el link que le llega está dado de alta en la tabla kfp_click_count
+ * Crea un nuevo registro con contador = 1 o incrementa el contador si el 
+ * registro ya existía
+ *
+ * @return void
+ */
 function kfp_clickcount_procesa_click()
 {
     global $wpdb;
@@ -27,12 +39,14 @@ function kfp_clickcount_procesa_click()
         $wpdb->update($clickcount_table, $data, $where);
     } else {
         // falta 'date_first_click'
-        $wpdb->insert($clickcount_table,
+        $wpdb->insert(
+            $clickcount_table,
             array(
                 'link' => $link,
                 'clicks' => 1,
                 'date_first_click' => date('Y-m-d')
-            ));
+            )
+        );
     }
     echo $link;
     wp_die(); // imprescindible en ajax
