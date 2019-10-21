@@ -1,9 +1,19 @@
 <?php
-defined( 'ABSPATH' ) or die();
+/**
+ * File: kfp-clickcount/include/public-click-list.php
+ *
+ * @package KFP ClickCount
+ */
 
-add_shortcode('kfp-clickcount-public-list', "kfp_clickcount_public_list");
+defined( 'ABSPATH' ) || die();
 
-function kfp_clickcount_public_list()
-{
-    
+add_shortcode( 'kfp-clickcount-public-list', 'kfp_clickcount_public_list' );
+
+/**
+ * Muestra la lista de enlaces con los contadores en el fronted
+ *
+ * @return void
+ */
+function kfp_clickcount_public_list() {
+	// Muestra la lista de enlaces con los contadores en el fronted.
 }
