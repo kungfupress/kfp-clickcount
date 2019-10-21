@@ -11,3 +11,5 @@ El plugin crea un nuevo menú en el escritorio que muestra la lista de enlaces c
 
 ## Tareas pendientes 
 Aunque en esta primera versión la implementación es muy básica sería sencillo modificar el plugin para que registrara enlaces marcados con una **clase** determinada, distinguir enlaces con la misma URL pero con distinto **id**, etc.
+
+Implementar shortcode para mostrar en el frontend la tabla de enlaces y contadores.
