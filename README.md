@@ -7,6 +7,8 @@ A partir de este momento cada vez que se pulse un enlace en el fronted este se a
 
 El plugin crea un nuevo menú en el escritorio que muestra la lista de enlaces con sus contadores. 
 
+![Tabla con enlaces y contadores](img/kfp-clickcount-admin.png)
+
 ## Tareas pendientes
 
 Aunque en esta primera versión la implementación es muy básica sería sencillo modificar el plugin para que registrara enlaces marcados con una **clase** determinada, distinguir enlaces con la misma URL pero con distinto **id**, etc.
