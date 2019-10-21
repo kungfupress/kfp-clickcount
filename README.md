@@ -9,6 +9,5 @@ El plugin crea un nuevo menú en el escritorio que muestra la lista de enlaces c
 
 ![Tabla con enlaces y contadores](img/kfp-clickcount-admin.png)
 
-## Tareas pendientes
-
+## Tareas pendientes 
 Aunque en esta primera versión la implementación es muy básica sería sencillo modificar el plugin para que registrara enlaces marcados con una **clase** determinada, distinguir enlaces con la misma URL pero con distinto **id**, etc.
