@@ -1,7 +1,7 @@
 <?php
 /**
  * File: kfp-clickcount/include/procesa-click.php
- * Añade un action hook para capturar las llamadas ajax que utilicen este hook
+ * Añade un action hook para capturar las llamadas ajax que utilicen este hook.
  *
  * @package KFP ClickCount
  */
@@ -21,29 +21,42 @@ add_action( 'wp_ajax_nopriv_kfp-click-link', 'kfp_clickcount_procesa_click' );
 function kfp_clickcount_procesa_click() {
 	global $wpdb;
 	$clickcount_table = $wpdb->prefix . 'kfp_clickcount';
-	//check_ajax_referer( 'clickcount-nonce', 'nonce' );
-	$link = esc_url_raw( $_POST['link'] );
+	// phpcs:ignore WordPress.Security.NonceVerification
+	if ( ! isset( $_POST['link'] ) ) {
+		die();
+	}
+	// phpcs:ignore WordPress.Security.NonceVerification
+	$link = esc_url_raw( wp_unslash( $_POST['link'] ) );
+	// Muy importantes los acentos graves en el nombre de la tabla !
+	// Igual de importante que no poner comillas a los nombres de campo !
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery
 	$row = $wpdb->get_row(
 		$wpdb->prepare(
-			"SELECT id, clicks FROM `$clickcount_table` WHERE `link` = %s",
-			$link
+			"SELECT id, clicks FROM `{$wpdb->prefix}kfp_clickcount` 
+				WHERE link = %s",
+			array( $link )
 		)
 	);
-
 	// Si el link está en la tabla incrementa contador, y si no agrégalo.
-	if ( null !== $row ) {
-		$id = $row->id;
-		$clicks = $row->clicks ++;
-		$data = array( 'clicks' => $clicks );
-		$where = array( 'id' => $id );
+	if ( $row ) {
+		$id     = $row->id;
+		$clicks = $row->clicks + 1;
+		$data   = array(
+			'clicks'          => $clicks,
+			'date_last_click' => date( 'Y-m-d H:i:s' ),
+		); // actualiza esto.
+		$where  = array( 'id' => $id ); // cuando se cumpla esto.
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
 		$wpdb->update( $clickcount_table, $data, $where );
 	} else {
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
 		$wpdb->insert(
 			$clickcount_table,
 			array(
 				'link'             => $link,
 				'clicks'           => 1,
-				'date_first_click' => date( 'Y-m-d' ),
+				'date_first_click' => date( 'Y-m-d H:i:s' ),
+				'date_last_click'  => date( 'Y-m-d H:i:s' ),
 			)
 		);
 	}
