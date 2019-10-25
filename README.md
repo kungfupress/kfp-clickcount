@@ -1,4 +1,5 @@
 # kfp-clickcount
+
 Cuenta los clicks que se producen en una web, de momento todos, pronto selectivamente.
 
 Al instalar el plugin se crea una tabla para almacenar los enlaces que se han ido pulsando y las veces que se ha pulsado cada uno, así como la fecha en que se pulsó el enlace por primera vez.
@@ -10,6 +11,11 @@ El plugin crea un nuevo menú en el escritorio que muestra la lista de enlaces c
 ![Tabla con enlaces y contadores](img/kfp-clickcount-admin.png)
 
 ## Tareas pendientes 
-Aunque en esta primera versión la implementación es muy básica sería sencillo modificar el plugin para que registrara enlaces marcados con una **clase** determinada, distinguir enlaces con la misma URL pero con distinto **id**, etc.
 
-Implementar shortcode para mostrar en el frontend la tabla de enlaces y contadores.
+- [ ] Aunque en esta primera versión la implementación es muy básica sería sencillo modificar el plugin para que registrara enlaces marcados con una **clase** determinada, distinguir enlaces con la misma URL pero con distinto **id**, etc.
+- [ ] Implementar shortcode para mostrar en el frontend la tabla de enlaces y contadores.
+- [ ] Traducir todas las cadenas al inglés
+
+## Changelog
+
+2019-10-25 Aplica estándares WordPress y añade fecha último click
