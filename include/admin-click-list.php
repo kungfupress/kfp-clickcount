@@ -32,16 +32,22 @@ function kfp_clickcount_menu() {
  */
 function kfp_clickcount_admin() {
 	global $wpdb;
-	$tabla_clickcounts = $wpdb->prefix . 'kfp_clickcount';
-	$clickcounts = $wpdb->get_results( "SELECT * FROM $tabla_clickcounts" );
+	$clickcounts = $wpdb->get_results(
+		"SELECT * FROM {$wpdb->prefix}kfp_clickcount"
+	); // db call ok; no-cache ok.
 	echo '<div class="wrap"><h1>Lista de Enlaces</h1>';
 	echo '<table class="wp-list-table widefat fixed striped">';
-	echo '<thead><tr><th>Enlaces</th><th>Clicks</th>';
+	echo '<thead><tr><th>Enlaces</th><th>Clicks</th>
+		<th>Primer Click</th><th>Último Click</th>';
 	echo '</tr></thead>';
 	echo '<tbody id="the-list">';
 	foreach ( $clickcounts as $clickcount ) {
+		echo '<tr>';
 		echo '<td>' . esc_textarea( $clickcount->link ) . '</td>';
-		echo '<td>' . (int) $clickcount->clicks . '</td></tr>';
+		echo '<td>' . (int) $clickcount->clicks . '</td>';
+		echo '<td>' . esc_textarea( $clickcount->date_first_click ) . '</td>';
+		echo '<td>' . esc_textarea( $clickcount->date_last_click ) . '</td>';
+		echo '</tr>';
 	}
 	echo '</tbody></table></div>';
 }
