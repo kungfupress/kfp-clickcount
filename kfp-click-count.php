@@ -4,7 +4,7 @@
  * Plugin Author: KungFuPress
  * Description:   Cuenta los clicks en enlaces o botones de tu web
  * Plugin URI:    https://github.com/kungfupress/kfp-clickcount
- * Version:       0.1.0
+ * Version:       0.1.1
  * Author:        Juanan Ruiz
  * Author URI:    https://kungfupress.com/
  *
