@@ -20,7 +20,7 @@ add_action( 'wp_ajax_nopriv_kfp-click-link', 'kfp_clickcount_procesa_click' );
  */
 function kfp_clickcount_procesa_click() {
 	global $wpdb;
-	$clickcount_table = $wpdb->prefix . 'kfp_clickcount';
+	$table = $wpdb->prefix . 'kfp_clickcount';
 	// phpcs:ignore WordPress.Security.NonceVerification
 	if ( ! isset( $_POST['link'] ) ) {
 		die();
@@ -47,11 +47,11 @@ function kfp_clickcount_procesa_click() {
 		); // actualiza esto.
 		$where  = array( 'id' => $id ); // cuando se cumpla esto.
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
-		$wpdb->update( $clickcount_table, $data, $where );
+		$wpdb->update( $table, $data, $where );
 	} else {
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
 		$wpdb->insert(
-			$clickcount_table,
+			$table,
 			array(
 				'link'             => $link,
 				'clicks'           => 1,
