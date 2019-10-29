@@ -19,3 +19,4 @@ El plugin crea un nuevo menú en el escritorio que muestra la lista de enlaces c
 ## Changelog
 
 2019-10-25 Aplica estándares WordPress y añade fecha último click
+2019-10-29 Los enlaces que aparecen en el panel de administración son "clicables"
