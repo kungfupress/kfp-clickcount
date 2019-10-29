@@ -20,9 +20,9 @@ function kfp_clickcount_create_table() {
 	// Mas adelante utiliza dbDelta, si la tabla ya existe no la crea sino que la
 	// modifica con los posibles cambios y sin pérdida de datos.
 	$sql[] = "CREATE TABLE $table (
-		id mediumint(9) NOT NULL AUTO_INCREMENT,
-		link varchar(500) NOT NULL UNIQUE,
-		clicks bigint(20),
+		id mediumint(9) UNSIGNED NOT NULL AUTO_INCREMENT,
+		link varchar(250) NOT NULL UNIQUE,
+		clicks int(11) UNSIGNED,
 		date_first_click datetime,
 		date_last_click datetime,
 		PRIMARY KEY (id)
