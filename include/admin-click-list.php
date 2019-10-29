@@ -43,7 +43,8 @@ function kfp_clickcount_admin() {
 	echo '<tbody id="the-list">';
 	foreach ( $clickcounts as $clickcount ) {
 		echo '<tr>';
-		echo '<td>' . esc_textarea( $clickcount->link ) . '</td>';
+		echo '<td><a href="' . esc_url_raw( $clickcount->link ) . '">'
+			. esc_textarea( $clickcount->link ) . '</a></td>';
 		echo '<td>' . (int) $clickcount->clicks . '</td>';
 		echo '<td>' . esc_textarea( $clickcount->date_first_click ) . '</td>';
 		echo '<td>' . esc_textarea( $clickcount->date_last_click ) . '</td>';
