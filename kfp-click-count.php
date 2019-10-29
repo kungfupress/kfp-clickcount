@@ -12,10 +12,10 @@
  */
 
 defined( 'ABSPATH' ) || die();
-$ruta_plugin = plugin_dir_path( __FILE__ );
+define( 'KFP_CLICKCOUNT_RUTA_PLUGIN', plugin_dir_path( __FILE__ ) );
 
 // Crea la tabla para los enlaces al activar el plugin.
-require_once $ruta_plugin . 'include/create-table.php';
+require_once KFP_CLICKCOUNT_RUTA_PLUGIN . 'include/create-table.php';
 register_activation_hook( __FILE__, 'kfp_clickcount_create_table' );
 
 // Agrega el script que estará vigilando nuestra web.
@@ -44,8 +44,8 @@ function kfp_clickcount_enqueue_scripts() {
 }
 
 // Procesa la pulsación de un enlace mediante AJAX.
-require_once $ruta_plugin . 'include/procesa-click.php';
+require_once KFP_CLICKCOUNT_RUTA_PLUGIN . 'include/procesa-click.php';
 
 // Shortcodes para mostrar la lista de clicks en escritorio o en la web.
-require_once $ruta_plugin . 'include/admin-click-list.php';
-require_once $ruta_plugin . 'include/public-click-list.php';
+require_once KFP_CLICKCOUNT_RUTA_PLUGIN . 'include/admin-click-list.php';
+require_once KFP_CLICKCOUNT_RUTA_PLUGIN . 'include/public-click-list.php';
