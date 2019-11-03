@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name:   KFP Click Count
+ * Plugin Name:   KFP ClickCount
  * Plugin Author: KungFuPress
  * Description:   Cuenta los clicks en enlaces o botones de tu web
  * Plugin URI:    https://github.com/kungfupress/kfp-clickcount
- * Version:       0.1.1
+ * Version:       0.1.3
  * Author:        Juanan Ruiz
  * Author URI:    https://kungfupress.com/
  *
@@ -12,10 +12,12 @@
  */
 
 defined( 'ABSPATH' ) || die();
-define( 'KFP_CLICKCOUNT_RUTA_PLUGIN', plugin_dir_path( __FILE__ ) );
+define( 'KFP_CLICKCOUNT_DIR', plugin_dir_path( __FILE__ ) );
+define( 'KFP_CLICKCOUNT_VERSION', '0.1.3' );
+
 
 // Crea la tabla para los enlaces al activar el plugin.
-require_once KFP_CLICKCOUNT_RUTA_PLUGIN . 'include/create-table.php';
+require_once KFP_CLICKCOUNT_DIR . 'include/create-table.php';
 register_activation_hook( __FILE__, 'kfp_clickcount_create_table' );
 
 // Agrega el script que estará vigilando nuestra web.
@@ -30,7 +32,7 @@ function kfp_clickcount_enqueue_scripts() {
 		'kfp-clickcount',
 		plugins_url( 'js/clickcount.js', __FILE__ ),
 		array( 'jquery' ),
-		'1.0.0',
+		KFP_CLICKCOUNT_VERSION,
 		true
 	);
 	wp_localize_script(
@@ -44,8 +46,8 @@ function kfp_clickcount_enqueue_scripts() {
 }
 
 // Procesa la pulsación de un enlace mediante AJAX.
-require_once KFP_CLICKCOUNT_RUTA_PLUGIN . 'include/procesa-click.php';
+require_once KFP_CLICKCOUNT_DIR . 'include/procesa-click.php';
 
 // Shortcodes para mostrar la lista de clicks en escritorio o en la web.
-require_once KFP_CLICKCOUNT_RUTA_PLUGIN . 'include/admin-click-list.php';
-require_once KFP_CLICKCOUNT_RUTA_PLUGIN . 'include/public-click-list.php';
+require_once KFP_CLICKCOUNT_DIR . 'include/admin-click-list.php';
+require_once KFP_CLICKCOUNT_DIR . 'include/public-click-list.php';

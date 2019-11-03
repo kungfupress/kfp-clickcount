@@ -8,9 +8,9 @@
 
 defined( 'ABSPATH' ) || die();
 // Para usuarios autenticados.
-add_action( 'wp_ajax_kfp-click-link', 'kfp_clickcount_procesa_click' );
+add_action( 'wp_ajax_kfp-clickcount-link', 'kfp_clickcount_procesa_click' );
 // Para usuarios NO autenticados.
-add_action( 'wp_ajax_nopriv_kfp-click-link', 'kfp_clickcount_procesa_click' );
+add_action( 'wp_ajax_nopriv_kfp-clickcount-link', 'kfp_clickcount_procesa_click' );
 /**
  * Busca si el link que le llega está dado de alta en la tabla kfp_click_count
  * Crea un nuevo registro con contador = 1 o incrementa el contador si el
