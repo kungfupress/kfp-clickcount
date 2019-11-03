@@ -3,7 +3,7 @@
  * File: kfp-clickcount/include/procesa-click.php
  * Añade un action hook para capturar las llamadas ajax que utilicen este hook.
  *
- * @package KFP ClickCount
+ * @package kfp_clickcount
  */
 
 defined( 'ABSPATH' ) || die();

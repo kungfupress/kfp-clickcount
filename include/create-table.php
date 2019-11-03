@@ -2,7 +2,7 @@
 /**
  * File: kfp-click-count/include/create-table.php
  *
- * @package KFP ClickCount
+ * @package kfp_clickcount
  */
 
 defined( 'ABSPATH' ) || die();

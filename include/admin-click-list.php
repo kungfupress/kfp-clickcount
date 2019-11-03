@@ -2,7 +2,7 @@
 /**
  * File: kfp-clickcount/include/admin-click-list.php
  *
- * @package KFP ClickCount
+ * @package kfp_clickcount
  */
 
 defined( 'ABSPATH' ) || die();

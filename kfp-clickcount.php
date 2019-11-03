@@ -8,7 +8,7 @@
  * Author:        Juanan Ruiz
  * Author URI:    https://kungfupress.com/
  *
- * @package KFP ClickCount
+ * @package kfp_clickcount
  */
 
 defined( 'ABSPATH' ) || die();
