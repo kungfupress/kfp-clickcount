@@ -6,6 +6,8 @@
  */
 
 defined( 'ABSPATH' ) || die();
+
+register_activation_hook( KFP_CLICKCOUNT_PLUGIN_FILE, 'kfp_clickcount_create_table' );
 /**
  * Crea las tablas necesarias durante la activación del plugin
  *
