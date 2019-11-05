@@ -32,9 +32,10 @@ function kfp_clickcount_menu() {
  */
 function kfp_clickcount_admin() {
 	global $wpdb;
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery
 	$clickcounts = $wpdb->get_results(
 		"SELECT * FROM {$wpdb->prefix}kfp_clickcount"
-	); // db call ok; no-cache ok.
+	);
 	echo '<div class="wrap"><h1>Lista de Enlaces</h1>';
 	echo '<table class="wp-list-table widefat fixed striped">';
 	echo '<thead><tr><th>Enlaces</th><th>Clicks</th>
