@@ -38,8 +38,8 @@ function kfp_clickcount_admin() {
 	);
 	echo '<div class="wrap"><h1>Lista de Enlaces</h1>';
 	echo '<table class="wp-list-table widefat fixed striped">';
-	echo '<thead><tr><th>Enlaces</th><th>Clicks</th>
-		<th>Primer Click</th><th>Último Click</th>';
+	echo '<thead><tr><th width="50%">Enlaces</th><th width="10%">Clicks</th>
+		<th width="20%">Primer Click</th><th width="20%">Último Click</th>';
 	echo '</tr></thead>';
 	echo '<tbody id="the-list">';
 	foreach ( $clickcounts as $clickcount ) {
@@ -48,7 +48,7 @@ function kfp_clickcount_admin() {
 			. esc_textarea( $clickcount->link ) . '</a></td>';
 		echo '<td>' . (int) $clickcount->clicks . '</td>';
 		echo '<td>' . esc_textarea( $clickcount->date_first_click ) . '</td>';
-		echo '<td>' . esc_textarea( $clickcount->date_last_click ) . '</td>';
+		echo '<td width="20%">' . esc_textarea( $clickcount->date_last_click ) . '</td>';
 		echo '</tr>';
 	}
 	echo '</tbody></table></div>';
