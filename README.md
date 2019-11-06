@@ -14,6 +14,7 @@ El plugin crea un nuevo menú en el escritorio que muestra la lista de enlaces c
 
 - [ ] Aunque en esta primera versión la implementación es muy básica sería sencillo modificar el plugin para que registrara enlaces marcados con una **clase** determinada, distinguir enlaces con la misma URL pero con distinto **id**, etc.
 - [ ] Traducir todas las cadenas al inglés
+- [ ] Implementar DataTable en la tabla pública para poder ordenar por las distintas columnas, paginar los resultados y hacer búsquedas.
 - [x] Implementar shortcode para mostrar en el frontend la tabla de enlaces y contadores.
 
 ## Changelog
