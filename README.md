@@ -8,6 +8,8 @@ A partir de este momento cada vez que se pulse un enlace en el fronted este se a
 
 El plugin crea un nuevo menú en el escritorio que muestra la lista de enlaces con sus contadores. 
 
+[Desarrollo de este plugin para contar clics explicado paso a paso en KungFuPress](https://kungfupress.com/construye-un-plugin-para-contar-los-clics-a-los-enlaces-de-tu-web/)
+
 ![Tabla con enlaces y contadores](img/kfp-clickcount-admin.png)
 
 ## Tareas pendientes 
