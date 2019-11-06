@@ -2,7 +2,7 @@
 /**
  * Plugin Name:   KFP ClickCount
  * Plugin Author: KungFuPress
- * Description:   Cuenta los clicks en enlaces o botones de tu web
+ * Description:   Cuenta los clics en enlaces o botones de tu web
  * Plugin URI:    https://github.com/kungfupress/kfp-clickcount
  * Version:       1.0.0
  * Author:        Juanan Ruiz
@@ -25,5 +25,5 @@ require_once KFP_CLICKCOUNT_DIR . 'include/enqueue-scripts.php';
 require_once KFP_CLICKCOUNT_DIR . 'include/procesa-click.php';
 // Panel administrativo para ver el contenido de la tabla en el escritorio.
 require_once KFP_CLICKCOUNT_DIR . 'include/admin-click-list.php';
-// Shortcode para mostrar la lista de clicks en escritorio o en la web.
+// Shortcode para mostrar la lista de clics en escritorio o en la web.
 require_once KFP_CLICKCOUNT_DIR . 'include/public-click-list.php';

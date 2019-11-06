@@ -38,8 +38,8 @@ function kfp_clickcount_admin() {
 	);
 	echo '<div class="wrap"><h1>Lista de Enlaces</h1>';
 	echo '<table class="wp-list-table widefat fixed striped">';
-	echo '<thead><tr><th width="50%">Enlaces</th><th width="10%">Clicks</th>
-		<th width="20%">Primer Click</th><th width="20%">Último Click</th>';
+	echo '<thead><tr><th width="50%">Enlaces</th><th width="10%">Clics</th>
+		<th width="20%">Primer Clic</th><th width="20%">Último Clic</th>';
 	echo '</tr></thead>';
 	echo '<tbody id="the-list">';
 	foreach ( $clickcounts as $clickcount ) {
