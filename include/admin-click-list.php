@@ -36,20 +36,27 @@ function kfp_clickcount_admin() {
 	$clickcounts = $wpdb->get_results(
 		"SELECT * FROM {$wpdb->prefix}kfp_clickcount"
 	);
-	echo '<div class="wrap"><h1>Lista de Enlaces</h1>';
-	echo '<table class="wp-list-table widefat fixed striped">';
-	echo '<thead><tr><th width="50%">Enlaces</th><th width="10%">Clics</th>
-		<th width="20%">Primer Clic</th><th width="20%">Último Clic</th>';
-	echo '</tr></thead>';
-	echo '<tbody id="the-list">';
+
+	$html  = '<div class="wrap">';
+	$html .= '<h1>' . esc_html__( 'Links List', 'kfp-clickcount' ) . '</h1>';
+	$html .= '<table class="wp-list-table widefat fixed striped">';
+	$html .= '<thead><tr>';
+	$html .= '<th width="50%">' . esc_html__( 'Link', 'kfp-clickcount' ) . '</th>';
+	$html .= '<th width="10%">' . esc_html__( 'Clicks', 'kfp-clickcount' ) . '</th>';
+	$html .= '<th width="20%">' . esc_html__( 'First Click', 'kfp-clickcount' ) . '</th>';
+	$html .= '<th width="20%">' . esc_html__( 'Last Click', 'kfp-clickcount' ) . '</th>';
+	$html .= '</tr></thead>';
+	$html .= '<tbody id="the-list">';
 	foreach ( $clickcounts as $clickcount ) {
-		echo '<tr>';
-		echo '<td><a href="' . esc_url_raw( $clickcount->link ) . '">'
-			. esc_textarea( $clickcount->link ) . '</a></td>';
-		echo '<td>' . (int) $clickcount->clicks . '</td>';
-		echo '<td>' . esc_textarea( $clickcount->date_first_click ) . '</td>';
-		echo '<td width="20%">' . esc_textarea( $clickcount->date_last_click ) . '</td>';
-		echo '</tr>';
+		$html .= '<tr>';
+		$html .= '<td><a href="' . esc_url_raw( $clickcount->link ) . '">';
+		$html .= esc_textarea( $clickcount->link ) . '</a></td>';
+		$html .= '<td>' . (int) $clickcount->clicks . '</td>';
+		$html .= '<td>' . esc_textarea( $clickcount->date_first_click ) . '</td>';
+		$html .= '<td width="20%">' . esc_textarea( $clickcount->date_last_click ) . '</td>';
+		$html .= '</tr>';
 	}
-	echo '</tbody></table></div>';
+	$html .= '</tbody></table></div>';
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo $html;
 }

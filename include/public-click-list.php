@@ -21,23 +21,24 @@ function kfp_clickcount_public_list() {
 		"SELECT * FROM {$wpdb->prefix}kfp_clickcount"
 	);
 
-	$html .= '<div class="wrap"><h1>Lista de Enlaces</h1>';
-	$html .= '<table class="wp-list-table widefat fixed striped id="clickcount-report">';
-	$html .= '<thead><tr><th>Enlaces</th><th>Clicks</th>';
-	$html .= '<th>Primer Click</th><th>Último Click</th>';
+	$html  = '<table class="wp-list-table widefat fixed striped">';
+	$html .= '<thead><tr>';
+	$html .= '<th width="50%">' . esc_html__( 'Link', 'kfp-clickcount' ) . '</th>';
+	$html .= '<th width="10%">' . esc_html__( 'Clicks', 'kfp-clickcount' ) . '</th>';
+	$html .= '<th width="20%">' . esc_html__( 'First Click', 'kfp-clickcount' ) . '</th>';
+	$html .= '<th width="20%">' . esc_html__( 'Last Click', 'kfp-clickcount' ) . '</th>';
 	$html .= '</tr></thead>';
 	$html .= '<tbody id="the-list">';
-
 	foreach ( $clickcounts as $clickcount ) {
 		$html .= '<tr>';
 		$html .= '<td><a href="' . esc_url_raw( $clickcount->link ) . '">';
 		$html .= esc_textarea( $clickcount->link ) . '</a></td>';
 		$html .= '<td>' . (int) $clickcount->clicks . '</td>';
 		$html .= '<td>' . esc_textarea( $clickcount->date_first_click ) . '</td>';
-		$html .= '<td>' . esc_textarea( $clickcount->date_last_click ) . '</td>';
+		$html .= '<td width="20%">' . esc_textarea( $clickcount->date_last_click ) . '</td>';
 		$html .= '</tr>';
 	}
-	$html .= '</tbody></table></div>';
+	$html .= '</tbody></table>';
 
 	return $html;
 }
