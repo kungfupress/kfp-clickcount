@@ -5,6 +5,7 @@
  * Plugin URI:    https://github.com/kungfupress/kfp-clickcount
  * Version:       1.1.0
  * Text Domain:   kfp-clickcount
+ * Domain Path: /languages
  * Plugin Author: Juanan Ruiz
  * Author URI:    https://kungfupress.com/
  *

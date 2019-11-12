@@ -14,6 +14,6 @@ add_action( 'plugins_loaded', 'kfp_clickcount_init' );
  * @return void
  */
 function kfp_clickcount_init() {
-	$translation_path = KFP_CLICKCOUNT_DIR . 'languages';
+	$translation_path = 'kfp-clickcount/languages';
 	load_plugin_textdomain( 'kfp-clickcount', false, $translation_path );
 }
