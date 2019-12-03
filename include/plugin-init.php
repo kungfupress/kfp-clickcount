@@ -7,13 +7,13 @@
 
 defined( 'ABSPATH' ) || die();
 
-add_action( 'plugins_loaded', 'kfp_clickcount_init' );
+add_action( 'plugins_loaded', 'kfp_clickcount_textdomain' );
 /**
- * Inicializa el plugin
+ * Declara donde se encuentran los ficheros de traducción del plugin
  *
  * @return void
  */
-function kfp_clickcount_init() {
+function kfp_clickcount_textdomain() {
 	$translation_path = 'kfp-clickcount/languages';
 	load_plugin_textdomain( 'kfp-clickcount', false, $translation_path );
 }
